@@ -1,0 +1,26 @@
+.cart-item{
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+border-bottom: 1px solid #8a2b06;
+margin-top: 10px
+}
+.cart-item h2{
+    font-style: italic;
+    color: #8a2b06;
+    font-size: large;
+    font-weight: bold;
+}
+.cart-item .summary{
+    display: flex;
+    justify-content: space-between;
+}
+.cart-item button{
+    color:#8a2b06;
+    background-color: transparent;
+    border-radius: 6px;
+    border:1px solid #8a2b06;
+    cursor: pointer;
+    margin-right: 3px;
+    font-size: 1.25rem;
+}
