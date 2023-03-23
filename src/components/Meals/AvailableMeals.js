@@ -5,34 +5,6 @@ import MealItem from './MealItem/MealItem';
 import axios from 'axios';
 import { FaSpinner } from "react-icons/fa";
 
-const DUMMY_MEALS = [
-    {
-      id: 'm1',
-      name: 'Vada-Pav',
-      description: 'spicy and crispy vada with chutney',
-      price: 5,
-    },
-    {
-      id: 'm2',
-      name: 'Pav-Bhaji',
-      description: 'A  specialty!',
-      price: 7,
-    },
-    {
-      id: 'm3',
-      name: 'Poha',
-      description: 'Authentic and tasty ',
-      price: 2,
-    },
-    {
-      id: 'm4',
-      name: 'Misal-pav',
-      description: 'A spicy curry and pav  topped with onions and sev',
-      price: 6,
-    },
-  ];
-  
-
 function AvailableMeals() {
   const [meals, setMeals] = useState([]);
   const [isLoading,setIsLoading]=useState(true);
@@ -43,14 +15,14 @@ function AvailableMeals() {
     console.log(result);
     setMeals(result.data)
     setIsLoading(false)
-    if(result.status!=='ok'){
+    if(result.statusText!=='ok'){
       throw new Error('something went wrong...')
     }
    }
   useEffect(() => {
     getdata().catch((err)=>{
       setIsLoading(false);
-      console.log(err);
+   
       if(err.code==='ERR_BAD_RESPONSE' || err.code==='ERR_NETWORK')
       setHttpError('something went wrong...');
     })

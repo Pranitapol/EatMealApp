@@ -4,6 +4,7 @@ import CartContext from "../../store/CartContext";
 import Modal from "../UI/Modal";
 import classes from './Cart.module.css';
 import Checkout  from "./Checkout"; 
+import axios from "axios";
 
 const Cart=(props)=>{
     const cartCtx=useContext(CartContext);
@@ -23,15 +24,26 @@ const Cart=(props)=>{
 
     const submitOrderHandler=async (userdata)=>{
         console.log('user data',userdata,cartCtx.items);
-          const result= await fetch('http://localhost:5000/orders/ordermeal',{
-                method:'POST',
-                body:JSON.stringify({
-                    "user":[userdata],
-                    "orderItems":[cartCtx.items]
-                })
-            })
-            const newresult=await result.json()
+        //   const result= await fetch('http://localhost:5000/orders/ordermeal',{
+        //         method:'POST',
+        //         body:JSON.stringify({
+        //             "user":[userdata],
+        //             "orderItems":[cartCtx.items]
+        //         })
+        //     })
+        //     const newresult=await result.json()
+        const data={
+            user:userdata,
+            orderItems:cartCtx.items.map((item)=>item)
+        }
+       const result= await axios.post("http://localhost:5000/orders/ordermeal",data)
+       const newresult=result
             console.log(newresult);
+    }
+    const OnclickHandler=async()=>{
+       const data=await axios.get('http://localhost:5000/orders/getorder')
+    //    const result=await data.json();
+       console.log('result',data);
     }
     return(
         <Modal onClose={props.onClose}>
@@ -58,7 +70,9 @@ const Cart=(props)=>{
             {hasItems && <button className={classes['button--alt']} onClick={clickHandler}>Order</button>}
               <button className={classes.button} onClick={props.onClose}>Close</button>
             </div>
+            <button type='button' onClick={OnclickHandler}>fetch</button>
         </Modal>
+       
         )
 }
 
