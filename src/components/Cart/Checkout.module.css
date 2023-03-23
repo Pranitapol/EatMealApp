@@ -1,0 +1,30 @@
+form{
+  text-align: center;
+}
+.controls{
+    display: block;
+}
+.controls input{
+margin: 0.5rem;
+}
+
+.actions{
+    display: block;
+}
+
+
+.actions button{
+    margin: 0.5rem;
+    width: 5rem;
+    height: 1.7rem;
+    font-size: medium;
+    background-color: rgb(130, 35, 11);
+    color:white;
+    border: 1px solid orange;
+    border-radius: 13px;
+}
+
+.actions .confirm{
+    background-color: grey;
+    cursor: none;
+}

@@ -3,6 +3,7 @@ import Cart from "./components/Cart/Cart";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import CartProvider from "./store/CartProvider";
+
 function App() {
   const [cartIsShown,setCartIsShown]=useState(false);
   const showCartHandler=()=>{
@@ -20,6 +21,7 @@ function App() {
       <main>
         <Meals/>
       </main>
+      {/* <h1 className="text-3xl font-bold underline capitalize">hello</h1> */}
     </CartProvider>
   );
 }

@@ -9,6 +9,22 @@
 list-style-type: none;
 }
 
+.loading{
+font-size: 40px;
+ display: flex;
+ justify-content: center;
+color: white;
+animation: spinner  1.5s linear ;
+}
+@keyframes spinner{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
 @keyframes meals-appear {
     from {
       opacity: 0;
